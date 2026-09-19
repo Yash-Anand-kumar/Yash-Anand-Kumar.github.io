@@ -225,6 +225,9 @@
   }
   .project .year { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 14px; }
   .project p { margin: 0 0 14px; color: var(--ink); max-width: 62ch; }
+  .project ul { margin: 0 0 14px; padding-left: 18px; color: var(--ink); max-width: 62ch; }
+  .project ul li { margin-bottom: 6px; }
+  .project ul li:last-child { margin-bottom: 0; }
   .stat-row { display: flex; gap: 26px; flex-wrap: wrap; margin-bottom: 14px; }
   .stat { }
   .stat .num { font-family: 'IBM Plex Serif', serif; font-size: 1.3rem; color: var(--gold-deep); display: block; }
@@ -369,7 +372,11 @@
     <div class="project">
       <h3>Intelligent Customer Churn Prediction System</h3>
       <div class="year">MSc Individual Research Project · April 2026 – September 2026</div>
-      <p>An end-to-end churn-prediction pipeline built on a 36,992-record, 22-feature e-commerce dataset. Engineered features and applied SMOTE to correct for class imbalance, then deployed a live Streamlit dashboard with SHAP-based explainability so a retention team can see why a customer is flagged, not just that they are.</p>
+      <ul>
+        <li>Built an end-to-end churn-prediction pipeline in Python on a 36,992-record, 22-feature e-commerce dataset to flag customers at risk of leaving.</li>
+        <li>Engineered features and applied SMOTE to correct class imbalance, then trained an XGBoost classifier reaching a 0.976 AUC-ROC and 94% F1-score.</li>
+        <li>Deployed a live Streamlit dashboard with SHAP-based explainability, enabling risk-tiered retention decisions for stakeholders.</li>
+      </ul>
       <div class="stat-row">
         <div class="stat"><span class="num">0.976</span><span class="label">AUC-ROC</span></div>
         <div class="stat"><span class="num">94%</span><span class="label">F1-score</span></div>
@@ -381,8 +388,12 @@
 
     <div class="project">
       <h3>NYC Payroll Big Data Analytics &amp; Machine Learning</h3>
-      <div class="year">Personal Project · January 2026 – March 2026</div>
-      <p>Analysed 6.7 million NYC citywide payroll records using PySpark to identify high earners and predict total compensation, comparing Logistic Regression, Decision Tree, Linear Regression and Random Forest models, then packaged the results into four Tableau dashboards covering data quality, model performance, business insights, and scalability.</p>
+      <div class="year">Coventry University Research Project · January 2026 – March 2026</div>
+      <ul>
+        <li>Analysed 6.7 million NYC citywide payroll records using PySpark to identify high earners and predict total compensation.</li>
+        <li>Compared Logistic Regression, Decision Tree, Linear Regression and Random Forest models in Spark MLlib; best classifier reached 96.57% AUC and best regressor an R² of 0.845.</li>
+        <li>Built four Tableau dashboards covering data quality, model performance, business insights, and scalability.</li>
+      </ul>
       <div class="stat-row">
         <div class="stat"><span class="num">6.7M</span><span class="label">records</span></div>
         <div class="stat"><span class="num">96.57%</span><span class="label">AUC</span></div>
@@ -395,22 +406,21 @@
 
     <div class="project">
       <h3>Multivariate Analysis of UK Deprivation (IMD 2025)</h3>
-      <div class="year">Independent Research · October 2025 – December 2025</div>
-      <p>Explored regional patterns and drivers of deprivation across England using the UK Index of Multiple Deprivation, applying EDA, PCA and hierarchical clustering, with spatial visualisation to surface how the underlying factors group geographically.</p>
+      <div class="year">Coventry University Research Project · October 2025 – December 2025</div>
+      <ul>
+        <li>Analysed the UK Index of Multiple Deprivation in R to explore regional patterns and drivers of deprivation across England.</li>
+        <li>Applied EDA, PCA and hierarchical clustering, with spatial visualisation to surface how the underlying factors group geographically.</li>
+      </ul>
       <div class="stack">R · PCA · Hierarchical Clustering · Spatial Visualisation</div>
-    </div>
-
-    <div class="project">
-      <h3>Statistical Analysis &amp; Regression Modelling</h3>
-      <div class="year">BSc Statistics Project · 2023–2024</div>
-      <p>Applied multivariate regression, hypothesis testing and exploratory data analysis to business datasets, turning statistical output into decision-ready insight for stakeholders.</p>
-      <div class="stack">R · Multivariate Regression · ANOVA · Chi-Square Testing</div>
     </div>
 
     <div class="project">
       <h3>Lifestyle &amp; Health Study — Chennai Population</h3>
       <div class="year">Final-Year Group Project · December 2023 – May 2024</div>
-      <p>Survey-based research into how sleep, diet and water intake relate to health across age groups in Chennai. Analysed around 300 responses with statistical methods and data visualisation to surface behavioural and health-risk trends, presented as team findings.</p>
+      <ul>
+        <li>Ran survey-based research into how sleep, diet and water intake relate to health across age groups in Chennai.</li>
+        <li>Analysed around 300 responses using statistical methods and data visualisation, presenting behavioural and health-risk trends as team findings.</li>
+      </ul>
       <div class="stack">Survey Research · Statistical Analysis · Data Visualisation</div>
     </div>
   </section>
