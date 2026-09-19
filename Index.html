@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash Anand Kumar — Data Scientist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --paper: #F3F1EB;
+    --paper-raised: #ECE8DD;
+    --ink: #1C2531;
+    --ink-soft: #5B6472;
+    --rule: #D9D3C4;
+    --gold: #B9862F;
+    --gold-deep: #8F6A22;
+    --teal: #3E6E68;
+    --focus: #2F6DB3;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #171B22;
+      --paper-raised: #1E232C;
+      --ink: #ECE8DD;
+      --ink-soft: #9DA5B3;
+      --rule: #333A47;
+      --gold: #D6A64B;
+      --gold-deep: #E7BE72;
+      --teal: #6FA79F;
+      --focus: #6FA1D9;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #171B22;
+    --paper-raised: #1E232C;
+    --ink: #ECE8DD;
+    --ink-soft: #9DA5B3;
+    --rule: #333A47;
+    --gold: #D6A64B;
+    --gold-deep: #E7BE72;
+    --teal: #6FA79F;
+    --focus: #6FA1D9;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  header.site .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .sitename {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  nav.top { display: flex; gap: 22px; font-size: 0.92rem; color: var(--ink-soft); }
+  nav.top a { text-decoration: none; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: border-color 0.15s ease, color 0.15s ease; }
+  nav.top a:hover { color: var(--ink); border-color: var(--gold); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 64px 0 56px;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 4.4vw, 2.7rem);
+    line-height: 1.18;
+    margin: 0 0 14px;
+  }
+  .hero .role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--teal);
+    margin: 0 0 22px;
+  }
+  .hero p.lede {
+    max-width: 46ch;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+    margin: 0 0 28px;
+  }
+  .hero .links { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 9px 18px;
+    border: 1px solid var(--ink);
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: var(--ink);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn:hover { background: var(--gold); border-color: var(--gold); color: #1C2531; }
+
+  .hero-figure { position: relative; }
+  .hero-figure svg { width: 100%; height: auto; display: block; }
+  .metric-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    fill: var(--ink-soft);
+  }
+  .metric-num {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.5rem;
+    fill: var(--ink);
+    font-weight: 500;
+  }
+
+  .fade-in {
+    animation: rise 0.7s ease both;
+  }
+  .fade-in.d2 { animation-delay: 0.12s; }
+  .fade-in.d3 { animation-delay: 0.22s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-in { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 46px 0; border-bottom: 1px solid var(--rule); }
+  section:last-of-type { border-bottom: none; }
+
+  h2.section-head {
+    font-family: 'IBM Plex Serif', serif;
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 0 26px;
+  }
+
+  .about p { max-width: 62ch; color: var(--ink); }
+  .about p + p { margin-top: 14px; }
+
+  /* ---------- Timeline (experience) ---------- */
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 5px; top: 6px; bottom: 6px;
+    width: 1px;
+    background: var(--rule);
+  }
+  .tl-item { position: relative; margin-bottom: 34px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-item::before {
+    content: "";
+    position: absolute;
+    left: -26px; top: 6px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  .tl-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .tl-role {
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin-bottom: 2px;
+  }
+  .tl-org { color: var(--teal); font-size: 0.92rem; margin-bottom: 10px; }
+  .tl-item ul { margin: 0; padding-left: 18px; color: var(--ink); }
+  .tl-item li { margin-bottom: 6px; }
+  .tl-item li:last-child { margin-bottom: 0; }
+
+  /* ---------- Project ---------- */
+  .project {
+    background: var(--paper-raised);
+    border-left: 3px solid var(--gold);
+    padding: 26px 26px 22px;
+  }
+  .project + .project { margin-top: 22px; }
+  .project h3 {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 1.15rem;
+    margin: 0 0 4px;
+    font-weight: 500;
+  }
+  .project .year { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 14px; }
+  .project p { margin: 0 0 14px; color: var(--ink); max-width: 62ch; }
+  .stat-row { display: flex; gap: 26px; flex-wrap: wrap; margin-bottom: 14px; }
+  .stat { }
+  .stat .num { font-family: 'IBM Plex Serif', serif; font-size: 1.3rem; color: var(--gold-deep); display: block; }
+  .stat .label { font-size: 0.76rem; color: var(--ink-soft); }
+  .stack { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--teal); }
+  .proj-divider { font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; color: var(--ink-soft); margin: 34px 0 14px; letter-spacing: 0.02em; }
+
+  /* ---------- Skills ---------- */
+  .skill-groups { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px 40px; }
+  .skill-group h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .skill-group .items { line-height: 1.9; }
+  .skill-group .items span::after { content: " · "; color: var(--rule); }
+  .skill-group .items span:last-child::after { content: ""; }
+
+  /* ---------- Education / Certs ---------- */
+  .edu-item { margin-bottom: 22px; }
+  .edu-item:last-child { margin-bottom: 0; }
+  .edu-degree { font-weight: 600; }
+  .edu-school { color: var(--teal); font-size: 0.92rem; }
+  .edu-date { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); }
+  .edu-focus { color: var(--ink-soft); font-size: 0.92rem; margin-top: 4px; }
+
+  .certs { display: flex; flex-wrap: wrap; gap: 10px; }
+  .certs span {
+    border: 1px solid var(--rule);
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 40px 0 60px;
+  }
+  footer .wrap { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 18px; }
+  footer .contact-line { font-size: 0.92rem; color: var(--ink-soft); }
+  footer .contact-line a { text-decoration: none; border-bottom: 1px solid var(--rule); }
+  footer .contact-line a:hover { border-color: var(--gold); color: var(--ink); }
+  footer .note { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--ink-soft); }
+
+  @media (max-width: 680px) {
+    .hero { grid-template-columns: 1fr; padding-top: 42px; }
+    .hero-figure { order: -1; max-width: 300px; }
+    .skill-groups { grid-template-columns: 1fr; }
+    nav.top { gap: 14px; font-size: 0.85rem; }
+    footer .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="sitename">Yash Anand Kumar</div>
+    <nav class="top">
+      <a href="#work">Experience</a>
+      <a href="#project">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <p class="role fade-in">DATA SCIENCE · COVENTRY, UK</p>
+      <h1 class="fade-in d2">Turning messy data into decisions someone can act on.</h1>
+      <p class="lede fade-in d3">Postgraduate data scientist with hands-on experience across analytics, retail and logistics operations — building predictive models and BI tooling that get used, not just presented.</p>
+      <div class="links fade-in d3">
+        <a class="btn primary" href="mailto:yashanandkumaruk@gmail.com">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/yash-anandkumar">LinkedIn</a>
+        <a class="btn" href="https://github.com/yourusername">GitHub</a>
+      </div>
+    </div>
+    <div class="hero-figure fade-in d3">
+      <svg viewBox="0 0 260 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Scatter plot with fitted regression line illustrating a predictive model">
+        <line x1="20" y1="10" x2="20" y2="190" stroke="var(--rule)" stroke-width="1"/>
+        <line x1="20" y1="190" x2="245" y2="190" stroke="var(--rule)" stroke-width="1"/>
+        <circle cx="38" cy="150" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="55" cy="168" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="60" cy="132" r="4" fill="var(--gold)" opacity="0.7"/>
+        <circle cx="78" cy="140" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="92" cy="110" r="4" fill="var(--gold)" opacity="0.7"/>
+        <circle cx="100" cy="128" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="118" cy="96" r="4" fill="var(--gold)" opacity="0.7"/>
+        <circle cx="130" cy="108" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="145" cy="80" r="4" fill="var(--gold)" opacity="0.7"/>
+        <circle cx="158" cy="92" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="172" cy="62" r="4" fill="var(--gold)" opacity="0.7"/>
+        <circle cx="188" cy="70" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="200" cy="48" r="4" fill="var(--gold)" opacity="0.7"/>
+        <circle cx="215" cy="55" r="4" fill="var(--gold)" opacity="0.85"/>
+        <circle cx="228" cy="34" r="4" fill="var(--gold)" opacity="0.7"/>
+        <line x1="30" y1="172" x2="238" y2="26" stroke="var(--teal)" stroke-width="2"/>
+        <text x="140" y="20" class="metric-num" text-anchor="middle">0.976</text>
+        <text x="140" y="34" class="metric-tag" text-anchor="middle">AUC-ROC, churn model</text>
+      </svg>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2 class="section-head">Profile</h2>
+    <p>Data science postgraduate with hands-on experience across analytics, retail and logistics operations. I build machine learning models and automated data-cleaning workflows in Python, SQL and Power BI — work that has cut processing time by 15% and fed real-time business decisions rather than sitting in a slide deck.</p>
+    <p>Most recently I built an end-to-end predictive pipeline reaching a 94% F1-score and 0.976 AUC-ROC, and packaged it as a dashboard stakeholders could actually use. Authorised to work in the UK via the Graduate Route (PSW).</p>
+  </section>
+
+  <section id="work">
+    <h2 class="section-head">Experience</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-date">June 2024 — July 2025</div>
+        <div class="tl-role">Junior Associate Analyst</div>
+        <div class="tl-org">Pixel Traders — battery &amp; electronics wholesaler/distributor</div>
+        <ul>
+          <li>Cleaned and validated sales and inventory data across the company's battery and electronics product lines using Python, reducing data-cleaning time by 15% and improving the reliability of stock and order reporting.</li>
+          <li>Built Power BI dashboards using DAX and data modelling to track sales performance and inventory movement across SKUs, supporting day-to-day decisions for a small trading team.</li>
+          <li>Supported quote and order-tracking for B2B enquiries, applying root-cause analysis to recurring reporting gaps and delivering weekly performance summaries.</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <div class="tl-date">July 2023 — June 2024</div>
+        <div class="tl-role">Customer Sales Consultant</div>
+        <div class="tl-org">NB Jewellers</div>
+        <ul>
+          <li>Reconciled daily cash transactions and inventory records with zero discrepancies, using structured audit and verification procedures.</li>
+          <li>Advised customers on product selection, building the kind of trust that turns into repeat visits.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <h2 class="section-head">Featured projects</h2>
+    <div class="project">
+      <h3>Intelligent Customer Churn Prediction System</h3>
+      <div class="year">MSc Individual Research Project · April 2026 – September 2026</div>
+      <p>An end-to-end churn-prediction pipeline built on a 36,992-record, 22-feature e-commerce dataset. Engineered features and applied SMOTE to correct for class imbalance, then deployed a live Streamlit dashboard with SHAP-based explainability so a retention team can see why a customer is flagged, not just that they are.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="num">0.976</span><span class="label">AUC-ROC</span></div>
+        <div class="stat"><span class="num">94%</span><span class="label">F1-score</span></div>
+        <div class="stat"><span class="num">36,992</span><span class="label">records</span></div>
+        <div class="stat"><span class="num">22</span><span class="label">features</span></div>
+      </div>
+      <div class="stack">Python · XGBoost · SMOTE · SHAP · Streamlit</div>
+    </div>
+
+    <div class="project">
+      <h3>NYC Payroll Big Data Analytics &amp; Machine Learning</h3>
+      <div class="year">Personal Project · January 2026 – March 2026</div>
+      <p>Analysed 6.7 million NYC citywide payroll records using PySpark to identify high earners and predict total compensation, comparing Logistic Regression, Decision Tree, Linear Regression and Random Forest models, then packaged the results into four Tableau dashboards covering data quality, model performance, business insights, and scalability.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="num">6.7M</span><span class="label">records</span></div>
+        <div class="stat"><span class="num">96.57%</span><span class="label">AUC</span></div>
+        <div class="stat"><span class="num">0.845</span><span class="label">R²</span></div>
+        <div class="stat"><span class="num">4</span><span class="label">dashboards</span></div>
+      </div>
+      <div class="stack">PySpark · Spark MLlib · Python · Tableau</div>
+    </div>
+    <div class="proj-divider">OTHER PROJECTS</div>
+
+    <div class="project">
+      <h3>Multivariate Analysis of UK Deprivation (IMD 2025)</h3>
+      <div class="year">Independent Research · October 2025 – December 2025</div>
+      <p>Explored regional patterns and drivers of deprivation across England using the UK Index of Multiple Deprivation, applying EDA, PCA and hierarchical clustering, with spatial visualisation to surface how the underlying factors group geographically.</p>
+      <div class="stack">R · PCA · Hierarchical Clustering · Spatial Visualisation</div>
+    </div>
+
+    <div class="project">
+      <h3>Statistical Analysis &amp; Regression Modelling</h3>
+      <div class="year">BSc Statistics Project · 2023–2024</div>
+      <p>Applied multivariate regression, hypothesis testing and exploratory data analysis to business datasets, turning statistical output into decision-ready insight for stakeholders.</p>
+      <div class="stack">R · Multivariate Regression · ANOVA · Chi-Square Testing</div>
+    </div>
+
+    <div class="project">
+      <h3>Lifestyle &amp; Health Study — Chennai Population</h3>
+      <div class="year">Final-Year Group Project · December 2023 – May 2024</div>
+      <p>Survey-based research into how sleep, diet and water intake relate to health across age groups in Chennai. Analysed around 300 responses with statistical methods and data visualisation to surface behavioural and health-risk trends, presented as team findings.</p>
+      <div class="stack">Survey Research · Statistical Analysis · Data Visualisation</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-head">Skills</h2>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h4>LANGUAGES &amp; DATA</h4>
+        <div class="items"><span>Python</span><span>SQL</span><span>R</span><span>PySpark</span><span>Pandas</span><span>NumPy</span><span>PostgreSQL</span><span>MySQL</span></div>
+      </div>
+      <div class="skill-group">
+        <h4>MODELLING</h4>
+        <div class="items"><span>Scikit-learn</span><span>XGBoost</span><span>Random Forest</span><span>SMOTE</span><span>SHAP</span><span>Spark MLlib</span></div>
+      </div>
+      <div class="skill-group">
+        <h4>REPORTING &amp; BI</h4>
+        <div class="items"><span>Power BI</span><span>DAX</span><span>Tableau</span><span>Advanced Excel</span><span>Streamlit</span></div>
+      </div>
+      <div class="skill-group">
+        <h4>TOOLING</h4>
+        <div class="items"><span>Git</span><span>GitHub</span><span>Jupyter Notebook</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-head">Education</h2>
+    <div class="edu-item">
+      <div class="edu-degree">MSc Data Science</div>
+      <div class="edu-school">Coventry University, UK</div>
+      <div class="edu-date">Sept 2025 — Sept 2026</div>
+      <div class="edu-focus">Machine Learning, Statistical Modelling, Data Analytics, Research Methods</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">BSc Statistics</div>
+      <div class="edu-school">Dwaraka Doss Goverdhan Doss Vaishnav College, India</div>
+      <div class="edu-date">July 2021 — May 2024</div>
+      <div class="edu-focus">Probability Theory, Multivariate Regression, ANOVA, Chi-Square Testing</div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2 class="section-head">Certifications</h2>
+    <div class="certs">
+      <span>Power BI Data Analyst</span>
+      <span>Python Programming for Statistics</span>
+      <span>Database Management Systems</span>
+      <span>Advanced Excel</span>
+    </div>
+  </section>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-line">
+      <a href="mailto:yashanandkumaruk@gmail.com">yashanandkumaruk@gmail.com</a>
+      &nbsp;·&nbsp;
+      Coventry, UK
+      &nbsp;·&nbsp;
+      <a href="https://www.linkedin.com/in/yash-anandkumar">LinkedIn</a>
+      &nbsp;·&nbsp;
+      <a href="https://github.com/yourusername">GitHub</a>
+    </div>
+    <div class="note">Last updated 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
